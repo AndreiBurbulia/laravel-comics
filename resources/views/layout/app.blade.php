@@ -9,10 +9,10 @@
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
-       
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     </head>
     <body>
-       <header>
+       <header id="site_header">
            <nav>
                <a href="{{route('home')}}">Home</a>
                <a href="{{route('characters')}}">Characters</a>
@@ -33,5 +33,10 @@
         @yield('content') 
         {{-- -- questo mi permette di creare il collegamento -- --}}
        </main>
+
+
+       <footer id="site_footer">
+           <p>footer</p>
+       </footer>
     </body>
 </html>

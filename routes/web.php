@@ -15,7 +15,19 @@ use Illuminate\Support\Facades\Route;
 
 //Home
 Route::get('/', function () {
-    return view('home');
+
+    $fumetti= config('comics');
+    $fumetti_collection = collect($fumetti);
+    $fumetti_book = $fumetti_collection->where('type', 'comic book');
+    //dd($fumetti_book);
+
+    $data = [
+        'fumetti_book' => $fumetti_book,
+    ];
+    
+
+
+    return view('home',$data);
 })->name('home');
 
 //Characters

@@ -1,0 +1,46 @@
+.container {
+    width: 1170px;
+    margin: 0 auto;
+
+    h1 {
+        margin: 3rem 0;
+    }
+
+    .card_container {
+        width: 100%;
+        display: flex;
+        flex-wrap: wrap;
+
+        .card {
+            width: calc(100% / 4 - 1rem);
+            margin: 0 0.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            img {
+                width: 100%;
+                object-fit: contain;
+            }
+
+            .details {
+                display: none;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                background-color: indigo;
+                padding: 0.5rem;
+                color: white;
+
+                h3 {
+                    margin: 1rem 0;
+                }
+            }
+
+            &:hover {
+                .details {
+                    display: block;
+                }
+            }
+        }
+    }
+}
