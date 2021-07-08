@@ -13,9 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-//Home
-Route::get('/', function () {
+//Characters
+Route::get('/characters', function () {
+    return view('characters');
+})->name('characters');
 
+//comics
+Route::get('/comics', function () {
     $fumetti= config('comics');
     $fumetti_collection = collect($fumetti);
     $fumetti_book = $fumetti_collection->where('type', 'comic book');
@@ -24,20 +28,7 @@ Route::get('/', function () {
     $data = [
         'fumetti_book' => $fumetti_book,
     ];
-    
-
-
-    return view('home',$data);
-})->name('home');
-
-//Characters
-Route::get('/characters', function () {
-    return view('characters');
-})->name('characters');
-
-//comics
-Route::get('/comics', function () {
-    return view('comics');
+    return view('comics', $data);
 })->name('comics');
 
 //movies
