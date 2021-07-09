@@ -137,6 +137,19 @@ body {
   display: block;
 }
 
+.show .container {
+  padding: 5rem 0;
+}
+.show .container img {
+  margin-bottom: 2rem;
+}
+.show .container h2 {
+  margin-bottom: 1rem;
+}
+.show .container p {
+  margin-bottom: 1rem;
+}
+
 #site_footer {
   height: 200px;
   background-color: indigo;

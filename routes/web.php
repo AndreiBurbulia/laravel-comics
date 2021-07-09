@@ -19,17 +19,39 @@ Route::get('/characters', function () {
 })->name('characters');
 
 //comics
-Route::get('/comics', function () {
-    $fumetti= config('comics');
+
+
+
+Route::get('/', function () {
+    $fumetti= config('comics.data');
+
+    /*
+    Se voglio andare una determinata categoria di fumetti posso usare collection
     $fumetti_collection = collect($fumetti);
     $fumetti_book = $fumetti_collection->where('type', 'comic book');
-    //dd($fumetti_book);
+    */
 
     $data = [
-        'fumetti_book' => $fumetti_book,
+        'fumetti_book' => $fumetti,
     ];
-    return view('comics', $data);
+    return view('comics.index', $data);
 })->name('comics');
+
+Route::get('comics/{id}', function ($id){
+    $fumetti= config('comics.data');
+
+    if(is_numeric($id) && $id < count($fumetti) && $id >= 0){
+
+        $comic= $fumetti[$id];
+    
+        return view('comics.show', compact('comic'));
+    }else{
+        abort(404);
+    }
+
+})->name('comic');
+
+
 
 //movies
 Route::get('/movies', function () {
