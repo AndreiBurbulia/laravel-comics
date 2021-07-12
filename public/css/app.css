@@ -115,6 +115,9 @@ body {
   margin-bottom: 3rem;
   position: relative;
 }
+.container .card_container .card a {
+  text-decoration: none;
+}
 .container .card_container .card img {
   width: 100%;
   -o-object-fit: contain;
@@ -152,5 +155,9 @@ body {
 
 #site_footer {
   height: 200px;
-  background-color: indigo;
+  background-image: url(../img/footer-bg.jpg);
+}
+#site_footer .container {
+  width: 1170px;
+  margin: auto;
 }

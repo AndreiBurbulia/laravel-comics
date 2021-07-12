@@ -1,4 +1,9 @@
 #site_footer {
     height: 200px;
-    background-color: indigo;
+    background-image: url(../img/footer-bg.jpg);
+
+    .container {
+        width: 1170px;
+        margin: auto;
+    }
 }

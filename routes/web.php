@@ -14,83 +14,33 @@ use Illuminate\Support\Facades\Route;
 */
 
 //Characters
-Route::get('/characters', function () {
-    return view('characters');
-})->name('characters');
+Route::get('/characters', 'PageController@index')->name('characters');
 
 //comics
-
-
-
-Route::get('/', function () {
-    $fumetti= config('comics.data');
-
-    /*
-    Se voglio andare una determinata categoria di fumetti posso usare collection
-    $fumetti_collection = collect($fumetti);
-    $fumetti_book = $fumetti_collection->where('type', 'comic book');
-    */
-
-    $data = [
-        'fumetti_book' => $fumetti,
-    ];
-    return view('comics.index', $data);
-})->name('comics');
-
-Route::get('comics/{id}', function ($id){
-    $fumetti= config('comics.data');
-
-    if(is_numeric($id) && $id < count($fumetti) && $id >= 0){
-
-        $comic= $fumetti[$id];
-    
-        return view('comics.show', compact('comic'));
-    }else{
-        abort(404);
-    }
-
-})->name('comic');
-
-
+Route::get('/', 'PageController@comics')->name('comics');
+Route::get('comics/{id}', 'PageController@comic')->name('comic');
 
 //movies
-Route::get('/movies', function () {
-    return view('movies');
-})->name('movies');
-
+Route::get('/movies', 'PageController@movies')->name('movies');
 
 //tv
-Route::get('/tv', function () {
-    return view('tv');
-})->name('tv');
+Route::get('/tv', 'PageController@tv')->name('tv');
 
 
 //games
-Route::get('/games', function () {
-    return view('games');
-})->name('games');
+Route::get('/games', 'PageController@games')->name('games');
 
 //collectibles
-Route::get('/collectibles', function () {
-    return view('collectibles');
-})->name('collectibles');
+Route::get('/collectibles', 'PageController@collectibles')->name('collectibles');
 
 //videos
-Route::get('/videos', function () {
-    return view('videos');
-})->name('videos');
+Route::get('/videos', 'PageController@videos')->name('videos');
 
 //fans
-Route::get('/fans', function () {
-    return view('fans');
-})->name('fans');
+Route::get('/fans', 'PageController@fans')->name('fans');
 
 //news
-Route::get('/news', function () {
-    return view('news');
-})->name('news');
+Route::get('/news', 'PostController@index')->name('news');
 
 //shop
-Route::get('/shop', function () {
-    return view('shop');
-})->name('shop');
+Route::get('/shop', 'PageController@shop')->name('shop');
